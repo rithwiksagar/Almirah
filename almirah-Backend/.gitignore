@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Build output (if any)
+dist/
+
+# Environment/config files
+src/config.ts
+
+# Logs
+*.log
+
+# OS files (optional, but harmless)
+.DS_Store
+Thumbs.db
