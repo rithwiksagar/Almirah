@@ -9,6 +9,8 @@ interface CardProps {
     title: string;
     URL: string;
     icon: ReactElement;
+    _id: string
+    onDelete: (contentId: string) => Promise<void>;
 }
 
 export const Card = (props: CardProps) => {
@@ -20,8 +22,8 @@ export const Card = (props: CardProps) => {
                     <span >{props.title}</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                    <MdEdit className="w-6 h-6 text-gray-500 dark:text-white" />
-                    <MdDelete className="w-6 h-6 text-gray-500 dark:text-white" />
+                    <MdEdit className="w-6 h-6 text-neutral-700" />
+                    <MdDelete onClick={()=>{ props.onDelete(props._id) }} className="w-6 h-6 text-neutral-700 cursor-pointer" />
                 </div>
             </div>
             <div>

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import { model, Schema } from "mongoose";
-import { DATABASE_URL } from "./config.js";
-
-mongoose.connect(DATABASE_URL);
+import dotenv from "dotenv"
+dotenv.config()
+mongoose.connect(process.env.DATABASE_URL!);
 
 //user schema
 const userSchema = new Schema({
@@ -11,7 +11,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
 });
 
-export const UserModel = model("users", userSchema);
+
 
 //content schema
 const contentSchema = new Schema({
@@ -20,7 +20,6 @@ const contentSchema = new Schema({
   tags: [{ type: mongoose.Types.ObjectId, ref: "Tag" }],
   userId: { type: mongoose.Types.ObjectId, ref: "users", required: true },
 });
-export const contentModel = model("content", contentSchema);
 
 //link schema
 const linkSchema = new Schema({
@@ -28,4 +27,7 @@ const linkSchema = new Schema({
   userId: { type: mongoose.Types.ObjectId, ref: "users", required: true },
 });
 
+
+export const UserModel = model("users", userSchema);
+export const contentModel = model("content", contentSchema);
 export const linkModel = model("links", linkSchema);

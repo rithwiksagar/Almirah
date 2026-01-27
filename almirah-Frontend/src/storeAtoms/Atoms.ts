@@ -1,6 +1,7 @@
 import { atom } from "recoil";
 
 export type contentType = {
+  _id: string,
   title: string;
   link: string;
 };

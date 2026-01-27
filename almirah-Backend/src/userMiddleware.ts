@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { SECRET_KEY } from "./config.js";
-
+import dotenv from "dotenv";
+dotenv.config()
 //to override the typeps of the express request object
 interface authRequest extends Request {
   userId?: string;
@@ -17,7 +17,7 @@ export const userMiddleware = (
   next: NextFunction
 ) => {
   const headers = req.headers["authorization"];
-  const decoded = jwt.verify(headers as string, SECRET_KEY) as jsonPayLoad;
+  const decoded = jwt.verify(headers as string, process.env.SECRET_KEY!) as jsonPayLoad;
 
   if (decoded) {
     req.userId = decoded.id;

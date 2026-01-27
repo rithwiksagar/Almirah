@@ -6,7 +6,7 @@ dist/
 
 # Environment/config files
 src/config.ts
-
+.env
 # Logs
 *.log
 

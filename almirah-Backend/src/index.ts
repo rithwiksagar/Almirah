@@ -6,6 +6,8 @@ import { GenerateID } from "./utils/utils.js";
 import { GenerateToken } from "./utils/jwtToken.js";
 import { signupSchema, signinSchema } from "./signupSchema.js";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config()
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -40,14 +42,14 @@ app.post("/api/v1/signin", async (req, res) => {
   if (!userDetails.success) {
     return res.json({ message: userDetails.error.issues[0]?.message });
   }
-  console.log(userDetails);
+ 
   const { email, password } = userDetails.data;
   const existingUser = await UserModel.findOne({ email });
   if (!existingUser) {
     return res.status(404).json({ message: "user not found" });
   }
 
-  console.log(existingUser);
+
   const passwordMatch = await bcrypt.compare(password, existingUser.password);
   if (passwordMatch) {
     const token = GenerateToken(existingUser._id.toString());
@@ -81,21 +83,21 @@ app.get("/api/v1/content", userMiddleware, async (req, res) => {
     })
     .populate("userId", "username");
 
-  res.json({
+  res.status(200).json({
     contents,
   });
 });
 
 //deleting the contents
 app.delete("/api/v1/content", userMiddleware, async (req, res) => {
-  const contentId = req.body.contentId;
+  const { contentId } = req.body;
   try {
     await contentModel.deleteOne({
       userId: req.userId,
-      contentId: (req as any).cotentId,
+      contentId: contentId
     });
 
-    res.status(200).json({ messsage: "contents deleted" });
+    res.status(200).json({ messsage: "content deleted" });
   } catch (e) {
     res.status(400).json({ message: "error while deleting the contents" });
   }
@@ -136,4 +138,4 @@ app.get("/api/v1/sharebrain/:sharebrain", async (req, res) => {
   }
 });
 
-app.listen(2000);
+app.listen(process.env.PORT);
