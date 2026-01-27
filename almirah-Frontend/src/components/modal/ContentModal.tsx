@@ -4,10 +4,10 @@ import { InputBox } from "../ui/inputBox";
 import { Button } from "../ui/Button";
 import { useForm } from "react-hook-form"
 import axios from "axios";
-import dotenv from "dotenv"
 import { contentAtom, type contentType } from "../../storeAtoms/Atoms";
 import { useSetRecoilState } from "recoil";
-dotenv.config()
+import { BACKEND_URL } from "../../utils/config";
+
 
 type propsType = {
     modal: boolean,
@@ -21,7 +21,7 @@ export const ContentModal = ({ modal, toggleModal }: propsType) => {
     const { register, handleSubmit, reset } = useForm<contentType>();
     async function addContent({ title, link }: contentType) {
         //sending request to the backend
-        const response = await axios.post(`${process.env.BACKEND_URL}/api/v1/content`, { title, link }, {
+        const response = await axios.post(`${BACKEND_URL}/api/v1/content`, { title, link }, {
             headers: {
                 "Authorization": localStorage.getItem("token")
             }

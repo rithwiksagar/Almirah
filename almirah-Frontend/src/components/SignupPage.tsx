@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { Button } from "./ui/Button";
 import { InputBox } from "./ui/inputBox";
 import type { signupProps } from "../pages/authentication";
-import dotenv from "dotenv";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-dotenv.config()
+import { BACKEND_URL } from "../utils/config";
+
 type userTypes = {
     username: string,
     password: string,
@@ -17,7 +17,7 @@ export const SignUpPage = ({ signUp, setSignUp }: signupProps) => {
     const { register, handleSubmit } = useForm<userTypes>();
     const navigate = useNavigate()
     async function signUser({ username, email, password }: userTypes) {
-        const response = await axios.post(`${process.env.BACKEND_URL}/api/v1/signup`, {
+        const response = await axios.post(`${BACKEND_URL}/api/v1/signup`, {
             username,
             email,
             password

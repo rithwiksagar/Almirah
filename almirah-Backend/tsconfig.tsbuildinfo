@@ -1,1 +1,1 @@
-{"root":["./src/config.ts","./src/custom.d.ts","./src/db.ts","./src/index.ts","./src/signupschema.ts","./src/usermiddleware.ts","./src/utils/jwttoken.ts","./src/utils/utils.ts"],"version":"5.9.3"}
+{"root":["./src/custom.d.ts","./src/db.ts","./src/index.ts","./src/signupschema.ts","./src/usermiddleware.ts","./src/utils/jwttoken.ts","./src/utils/utils.ts"],"version":"5.9.3"}

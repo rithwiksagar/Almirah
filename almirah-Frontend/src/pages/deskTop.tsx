@@ -1,6 +1,6 @@
 
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ContentModal } from "../components/modal/ContentModal";
 import { Card } from "../components/ui/Card"
 import { Header } from "../components/Header";
@@ -9,10 +9,9 @@ import { FaYoutube } from "react-icons/fa6";
 import { useContent } from "../hooks/useContent";
 import { LogoutModal } from "../components/modal/LogoutModal";
 import axios from "axios";
-import dotenv from "dotenv"
 import { contentAtom } from "../storeAtoms/Atoms";
 import { useRecoilState } from "recoil";
-dotenv.config()
+import { BACKEND_URL } from "../utils/config";
 //desktop page or the main page
 export function DeskTop() {
     //state to open and close add content modal
@@ -25,7 +24,7 @@ export function DeskTop() {
     }
     
     async function handleDelete(contentId: string){
-    const response = await axios.delete(`${process.env.BACKEND_URL}/api/v1/content`,{
+    const response = await axios.delete(`${BACKEND_URL}/api/v1/content`,{
             headers: {
       "Authorization": localStorage.getItem("token")
     },
