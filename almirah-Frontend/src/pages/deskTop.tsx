@@ -11,7 +11,8 @@ import { LogoutModal } from "../components/modal/LogoutModal";
 import axios from "axios";
 import { contentAtom } from "../storeAtoms/Atoms";
 import { useRecoilState } from "recoil";
-import { BACKEND_URL } from "../utils/config";
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 //desktop page or the main page
 export function DeskTop() {
     //state to open and close add content modal

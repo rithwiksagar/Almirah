@@ -25,3 +25,4 @@ dist-ssr
 
 #config files 
 src/utils/config.ts
+.env

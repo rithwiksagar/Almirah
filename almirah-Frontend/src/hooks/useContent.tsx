@@ -2,8 +2,8 @@ import axios from "axios"
 import { useEffect } from "react"
 import { useRecoilState } from "recoil"
 import { contentAtom } from "../storeAtoms/Atoms"
-import { BACKEND_URL } from "../utils/config"
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 //custom hook to get the contents from DB and display it
 export function useContent() {
     const [contents, setContents] = useRecoilState(contentAtom)

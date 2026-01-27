@@ -4,7 +4,8 @@ import { InputBox } from "./ui/inputBox";
 import type { signupProps } from "../pages/authentication";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { BACKEND_URL } from "../utils/config";
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 type userTypes = {
     username: string,

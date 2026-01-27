@@ -4,8 +4,9 @@ import { Button } from "./ui/Button"
 import { InputBox } from "./ui/inputBox"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
-import { BACKEND_URL } from "../utils/config"
 
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 type userTypes = {
     email: string,

@@ -6,9 +6,8 @@ import { useForm } from "react-hook-form"
 import axios from "axios";
 import { contentAtom, type contentType } from "../../storeAtoms/Atoms";
 import { useSetRecoilState } from "recoil";
-import { BACKEND_URL } from "../../utils/config";
 
-
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 type propsType = {
     modal: boolean,
     toggleModal: () => void
