@@ -11,7 +11,13 @@ dotenv.config();
 const PORT =  process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://almirah-vault.vercel.app/"
+  ],
+  credentials: true
+}));
 //signup endpoint
 app.post("/api/v1/signup", async (req, res) => {
 
