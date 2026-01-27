@@ -7,7 +7,8 @@ import { GenerateToken } from "./utils/jwtToken.js";
 import { signupSchema, signinSchema } from "./signupSchema.js";
 import cors from "cors";
 import dotenv from "dotenv";
-dotenv.config()
+dotenv.config();
+const PORT =  process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -138,4 +139,4 @@ app.get("/api/v1/sharebrain/:sharebrain", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT);
+app.listen(PORT);
