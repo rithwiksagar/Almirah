@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://almirah-vault.vercel.app/"
+    "https://almirah-ten.vercel.app"
   ],
   credentials: true
 }));
