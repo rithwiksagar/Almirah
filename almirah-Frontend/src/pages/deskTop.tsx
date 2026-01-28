@@ -25,11 +25,10 @@ export function DeskTop() {
     }
     
     async function handleDelete(contentId: string){
-    const response = await axios.delete(`${BACKEND_URL}/api/v1/content`,{
+    const response = await axios.delete(`${BACKEND_URL}/api/v1/content/${contentId}`,{
             headers: {
       "Authorization": localStorage.getItem("token")
     },
-    data: { contentId: contentId} 
     });
     if(response.status === 200){
         alert("Content deleted successfully");
