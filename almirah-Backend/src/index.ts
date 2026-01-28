@@ -12,11 +12,9 @@ const PORT =  process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://almirah-ten.vercel.app"
-  ],
-  credentials: true
+  origin: 
+    "https://almirah-ten.vercel.app",
+    credentials: true
 }));
 //signup endpoint
 app.post("/api/v1/signup", async (req, res) => {
