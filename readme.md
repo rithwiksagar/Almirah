@@ -1,7 +1,7 @@
 # ALMIRAH - A Smart Way To Store Content
 ALMIRAH is a simple and intuitive link-storage web application designed to help you save, organize, and revisit any kind of link you come across on the internet. Whether it's articles, videos, resources, or tools—ALMIRAH works as your personal digital cupboard where everything stays neatly stored and easy to access.
 
-**Note**: This project is currently under development. Some features may be incomplete.Deployment will follow once the project gets finished.
+**Note**: This is an early MVP. Features are incomplete, things may change, and you might hit a few rough edges.
 
 ## Features
 * Save any link with title & description
