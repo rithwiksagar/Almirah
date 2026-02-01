@@ -21,12 +21,10 @@ export const SignInPage = ({ signUp, setSignUp }: signupProps) => {
             email,
             password
         });
-        //assigning the token to local storage
+        if(response.status === 200){
         const token = response.data.token;
         localStorage.setItem("token", token);
         alert(response.data.message)
-        if (token) {
-
             navigate("/desktop");
         }
     }

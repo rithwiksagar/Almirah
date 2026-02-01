@@ -11,7 +11,7 @@ export const HomePage = () => {
   const setSignUp = useSetRecoilState(signUpAtom);
   
   return (
-    <div className="bg-slate-50 w-screen h-screen flex flex-col">
+    <div className="bg-slate-50 w-screen h-screen flex flex-col relative">
 
       <div className="flex justify-between p-4 px-40">
         <div className="text-3xl font-clashdisplay tracking-wider font-semibold cursor-pointer">
@@ -23,7 +23,6 @@ export const HomePage = () => {
             size="md" 
             title="Log in" 
             onClick={() => {navigate("/authentication"); setSignUp(false)}} 
-            
             />
           <Button 
             variant="primary" 

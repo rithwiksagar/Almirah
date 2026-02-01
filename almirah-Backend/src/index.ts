@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin: 
-    "https://almirah-ten.vercel.app",
+    process.env.FRONTEND_URL,
     credentials: true
 }));
 //signup endpoint
@@ -58,7 +58,7 @@ app.post("/api/v1/signin", async (req, res) => {
   const passwordMatch = await bcrypt.compare(password, existingUser.password);
   if (passwordMatch) {
     const token = GenerateToken(existingUser._id.toString());
-    res.json({ message: "welcome back", token });
+    res.status(200).json({ message: "welcome back", token });
   }
 });
 
