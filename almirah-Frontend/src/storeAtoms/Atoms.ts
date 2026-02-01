@@ -19,3 +19,8 @@ export const logoutAtom = atom({
   key: "logoutAtom",
   default: false,
 });
+
+export const signUpAtom = atom<boolean>({
+  key: "signUpAtom",
+  default: true
+})

@@ -2,11 +2,14 @@ import { useNavigate } from "react-router-dom"
 import { Button } from "../components/ui/Button"
 import peopleImage from "../assets/people.jpg"
 import { FaGithub } from "react-icons/fa";
+import { useSetRecoilState } from "recoil";
+import { signUpAtom } from "../storeAtoms/Atoms";
 
 //landing page 
 export const HomePage = () => {
   const navigate = useNavigate();
-
+  const setSignUp = useSetRecoilState(signUpAtom);
+  
   return (
     <div className="bg-slate-50 w-screen h-screen flex flex-col">
 
@@ -15,8 +18,17 @@ export const HomePage = () => {
           ALMIRAH.
         </div>
         <div className="flex gap-2">
-          <Button variant="secondary" size="md" title="Log in" onClick={() => navigate("/authentication")} />
-          <Button variant="primary" size="lg" title="Get Started" onClick={() => navigate("/authentication")} />
+          <Button 
+            variant="secondary" 
+            size="md" 
+            title="Log in" 
+            onClick={() => {navigate("/authentication"); setSignUp(false)}} 
+            
+            />
+          <Button 
+            variant="primary" 
+            size="lg" title="Get Started" 
+            onClick={() => {navigate("/authentication"); setSignUp(true)}} />
           <Button variant="secondary" size="md" title="GitHub" 
           startIcon={<FaGithub className="size-5"/>}
           onClick={()=>{window.open("https://github.com/rithwiksagar/Almirah")}}

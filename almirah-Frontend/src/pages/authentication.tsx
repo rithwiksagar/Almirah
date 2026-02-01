@@ -1,7 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import { SignInPage } from "../components/SignInPage"
 import { SignUpPage } from "../components/SignupPage"
 import { useNavigate } from "react-router-dom"
+import { useRecoilState } from "recoil"
+import { signUpAtom } from "../storeAtoms/Atoms"
 
 export type signupProps = {
     signUp: boolean,
@@ -10,7 +12,8 @@ export type signupProps = {
 
 //authentication page for both signup and signin
 export const Authentication = () => {
-    const [signUp, setSignUp] = useState(true)
+    
+    const [signUp, setSignUp] = useRecoilState(signUpAtom);
     const navigate = useNavigate();
     return <div className="h-screen bg-slate-50">
         <div onClick={() => { navigate("/") }} className=" text-2xl font-clashdisplay tracking-wider font-semibold p-6 w-fit rounded-md cursor-pointer">
