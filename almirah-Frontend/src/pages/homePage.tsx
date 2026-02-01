@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { Button } from "../components/ui/Button"
 import peopleImage from "../assets/people.jpg"
+import { FaGithub } from "react-icons/fa";
 
 //landing page 
 export const HomePage = () => {
@@ -9,18 +10,22 @@ export const HomePage = () => {
   return (
     <div className="bg-slate-50 w-screen h-screen flex flex-col">
 
-      <div className="flex justify-between p-4">
-        <div className="text-2xl font-clashdisplay tracking-wider font-semibold cursor-pointer">
+      <div className="flex justify-between p-4 px-40">
+        <div className="text-3xl font-clashdisplay tracking-wider font-semibold cursor-pointer">
           ALMIRAH.
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-2">
           <Button variant="secondary" size="md" title="Log in" onClick={() => navigate("/authentication")} />
           <Button variant="primary" size="lg" title="Get Started" onClick={() => navigate("/authentication")} />
+          <Button variant="secondary" size="md" title="GitHub" 
+          startIcon={<FaGithub className="size-5"/>}
+          onClick={()=>{window.open("https://github.com/rithwiksagar/Almirah")}}
+          />
         </div>
       </div>
+      <div className="border-b border-neutral-300"></div>
 
-
-      <div className="flex flex-1 items-center justify-between px-36">
+      <div className="flex flex-1 items-center justify-between px-40">
         <div>
           <div className="font-clashdisplay font-semibold text-7xl max-w-max overflow-hidden whitespace-nowrap border-r-[0.5px] animate-typewriter-blink">
             Join Now
