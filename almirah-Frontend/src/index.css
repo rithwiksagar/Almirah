@@ -1,77 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Momo+Signature&family=Stack+Sans+Text&display=swap');
-@import "tailwindcss";
-@theme{
-
+@import 'tailwindcss';
+@theme {
   --color-purple-600: #5046e4;
   --color-purple-300: #e0e7fe;
   --color-purple-500: #3e38a7;
   --color-gray-500: #263238;
-  --color-green-200: #92E3A9;
-  --color-lightPink: #FCEBf1;
-  --color-cream: #ECE3D2;
+  --color-green-200: #92e3a9;
+  --color-lightPink: #fcebf1;
+  --color-cream: #ece3d2;
   --color-lightMatcha: #9faa74;
-  --color-violet: #AE88EE;
-  --font-stacksans: "Stack Sans Text",sans-serif;
-  --font-momo: "Momo signature", cursive;
-  --font-clashdisplay: "Clash Display", sans-serif;
+  --color-violet: #ae88ee;
+  --font-stacksans: 'Stack Sans Text', sans-serif;
+  --font-momo: 'Momo signature', cursive;
+  --font-clashdisplay: 'Clash Display', sans-serif;
   --animate-typewriter: typewriter 3s steps(30) 1s forwards;
   --animate-blink: blink 0.7s infinite;
 }
 
 @font-face {
   font-family: Clash Display;
-  src: url("./assets/fonts/ClashDisplay-Regular.otf");
+  src: url('./assets/fonts/ClashDisplay-Regular.otf');
   font-weight: 400;
 }
 
 @font-face {
   font-family: Clash Display;
-  src: url("./assets/fonts/ClashDisplay-Bold.otf");
+  src: url('./assets/fonts/ClashDisplay-Bold.otf');
   font-weight: 700;
 }
 
 @font-face {
   font-family: Clash Display;
-  src: url("./assets/fonts/ClashDisplay-Semibold.otf");
+  src: url('./assets/fonts/ClashDisplay-Semibold.otf');
   font-weight: 600;
 }
 
 @font-face {
   font-family: Clash Display;
-  src: url("./assets/fonts/ClashDisplay-Medium.otf");
+  src: url('./assets/fonts/ClashDisplay-Medium.otf');
   font-weight: 600;
 }
 
-@stack-sans-text-{
-  font-family: "Stack Sans Text", sans-serif;
+@stack-sans-text- {
+  font-family: 'Stack Sans Text', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
 @momo-signature-regular {
-  font-family: "Momo Signature", cursive;
+  font-family: 'Momo Signature', cursive;
   font-weight: 400;
   font-style: normal;
 }
 
 @keyframes typewriter {
-  0% { width: 0%; }
-  100% { width: 100%; }
-
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: currentColor; }
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: currentColor;
+  }
 }
 
 @layer utilities {
   .animate-typewriter-blink {
-    animation:
-      var(--animate-typewriter),
-      var(--animate-blink);
+    animation: var(--animate-typewriter), var(--animate-blink);
   }
 }
-
-
