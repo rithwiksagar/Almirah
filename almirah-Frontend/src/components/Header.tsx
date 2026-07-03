@@ -6,9 +6,11 @@ import { IoSearch } from 'react-icons/io5';
 
 type ContentProps = {
   toggleModal: () => void;
+  searchQuery: string;
+  setSearchQuery: (val: string) => void;
 };
-//need to work on this
-export function Header({ toggleModal }: ContentProps) {
+
+export function Header({ toggleModal, searchQuery, setSearchQuery }: ContentProps) {
   return (
     <div className="flex justify-between m-3 pb-2 pl-28 w-screen fixed">
       <InputBox
@@ -16,6 +18,8 @@ export function Header({ toggleModal }: ContentProps) {
         type="text"
         placeholder="Search for something..."
         endIcon={<IoSearch />}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <div className="flex pr-6">
         <Button
